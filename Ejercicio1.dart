@@ -43,7 +43,11 @@ String horaString2(int h, int m, int s) {
     }
     if (hores > 23) formattedTime = "Hora incorrecta";
     else {
-        formattedTime = "$hores:$minuts:$seg";
+      // padLeft para asegurarme de que los números tengan dos dígitos, aunque sean menores de 10.
+        String horesStr = hores.toString().padLeft(2, '0');
+        String minutsStr = minuts.toString().padLeft(2, '0');
+        String segStr = seg.toString().padLeft(2, '0');
+        formattedTime = "$horesStr:$minutsStr:$segStr";
     }
 
 
@@ -54,11 +58,11 @@ String horaString2(int h, int m, int s) {
 void main(List<String> args) {
 
 //Asignación de los valores a los tres INT segund los datos recibidos
-/*int h = int.parse(args[0]);
+int h = int.parse(args[0]);
 int m = int.parse(args[1]);
-int s = int.parse(args[2]);*/
+int s = int.parse(args[2]);
 
-// Llamada a la función para conversir los int
-print(horaString2(0, 120, 0));
+// Llamada a la función para convertir los int
+print(horaString2(h, m, s));
 
 }
